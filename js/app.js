@@ -3,13 +3,15 @@ function tplawesome(e,t){res=e;for(var n=0;n<t.length;n++){res=res.replace(/\{\{
 $(function() {
     $("form").on("submit", function(e) {
        e.preventDefault();
-       // prepare the request
+       // prepare the request YouTube.Search  gapi.client.youtube.search
        var request = gapi.client.youtube.search.list({
             part: "snippet",
             type: "video",
             q: encodeURIComponent($("#search").val()).replace(/%20/g, "+"),
             maxResults: 10,
             order: "viewCount",
+            regionCode: "UA",
+            relevanceLanguage: "uk",
             publishedAfter: "2016-01-01T00:00:00Z"
        }); 
        // execute the request
